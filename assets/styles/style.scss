@@ -1,0 +1,208 @@
+// Small reset
+html {
+    box-sizing: border-box;
+    font-size: 1rem;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body, h1, h2, h3, h4, h5, h6, p, ol, ul {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+
+// Variables
+$blue: #232544;
+$unread-bg: rgb(226, 226, 226);
+$light-grey: rgb(163, 163, 163);
+$dark-grey: rgb(70, 70, 70);
+$dark: rgb(24, 24, 24);
+
+
+
+// Headings size
+h1 {
+    font-size: 1.4rem;
+}
+h2 {
+    font-size: 1.2rem;
+}
+h3 {
+    font-size: 0.9rem;
+}
+h4 {
+    font-size: 0.6rem;
+}
+
+
+
+// Style
+body {
+    font-family: 'Lexend Deca', sans-serif;
+    color: $light-grey;
+}
+
+.container {
+    padding: 20px 10px;
+}
+
+
+.notifications {
+
+    // Header
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        h2 {
+            color: #232544;
+            font-weight: 800;
+            font-family: 'Lexend Deca', sans-serif;
+
+            span {
+                padding: 5px 10px;
+                background-color: #1f2bd4;
+                color: white;
+                font-size: 1rem;
+                border-radius: 6px;
+            }
+        }
+
+        h3 {
+            color: $light-grey;
+            font-weight: 500;
+            cursor: pointer;
+        }
+    }
+
+
+    // Content
+    &__content {
+        padding: 20px 0;
+
+        .item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            margin-bottom: 10px;
+            transition: background .2s ease-in-out;
+
+            &__image {
+                margin-right: 15px;
+
+                img {
+                    max-width: 35px;
+                    max-height: 35px;
+                    margin-right: 5px;
+                }
+            }
+
+            &__content {
+                font-weight: 500;
+
+                h3 {
+                    font-weight: 600;
+
+                    .name {
+                        color: $dark;
+                    }
+                }
+
+                .post {
+                    color: $dark-grey; 
+                }
+
+                .group {
+                    color: $blue;
+                }
+
+                .time {
+                    color: $light-grey;
+                    font-size: .8rem;
+                }
+
+                .private {
+                    margin-top: 5px;
+                    padding: 10px;
+                    font-size: 0.8rem;
+                    border: 1px solid $light-grey;
+                    border-radius: 4px;
+                    color: $dark-grey;
+                }
+
+                .unread-btn {
+                    opacity: 0;
+                    transition: opacity .2s ease-in-out;
+                }
+            }
+        }
+
+        // Style when the message has not been read
+        .unread {
+            background-color: rgba($unread-bg, 0.2);
+            border-radius: 8px;
+            transition: background .2s ease-in-out;
+
+            .unread-btn {
+                margin-left: 2px;
+                opacity: 1;
+                margin-bottom: 1px;
+                width:  8px;
+                height: 8px;
+                border-radius: 50px;
+                background-color: rgb(238, 60, 60);
+                display: inline-block;
+                transition: opacity .2s ease-in-out;
+            }
+        }
+    }
+}
+
+// Desktop
+@media only screen and (min-width: 992px) {
+    h1 {
+        font-size: 1.6rem;
+    }
+    h2 {
+        font-size: 1.4rem;
+    }
+    h3 {
+        font-size: 1rem;
+    }
+    h4 {
+        font-size: 0.7rem;
+    }
+    
+    body {
+        background-color: rgb(238, 238, 238);
+        height: 100vh;
+        display: flex;
+        align-items: center;
+    }
+
+    .container {
+        background-color: white;
+        max-width: 900px;
+        display: flex;
+        align-items: center;
+        margin: 0 auto;
+        border-radius: 8px;
+        box-shadow: 2px 2px 20px 0px grey;
+    }
+}
+
